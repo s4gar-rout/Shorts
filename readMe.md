@@ -45,6 +45,7 @@ A simple web application that displays video reels similar to TikTok or Instagra
 ```
 
 📸 Screenshots
+[App Screenshot](https://github.com/s4gar-rout/Shorts/blob/main/Screenshot%202025-11-29%20110651.png?raw=true)
 
 
 
