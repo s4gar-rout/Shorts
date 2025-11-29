@@ -36,17 +36,15 @@ A simple web application that displays video reels similar to TikTok or Instagra
 
 📂 Project Structure
 
-📦 Shorts App
+```📦 Shorts App
 ├── index.html
 ├── style.css
 ├── script.js
 └── images/
     └── shorts-preview.png
+```
 
-
-## 📸 Screenshots
-(<Screenshot 2025-11-29 110651-1.png>)
-
+📸 Screenshots
 
 
 
