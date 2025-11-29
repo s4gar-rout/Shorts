@@ -3,6 +3,7 @@ const posts = [
     profileImg: "https://randomuser.me/api/portraits/men/11.jpg",
     name: "Aarav Sharma",
     isFollowed: false,
+    isLiked: false,
     likes: 120,
     comments: 34,
     shares: 10,
@@ -13,6 +14,7 @@ const posts = [
     profileImg: "https://randomuser.me/api/portraits/women/12.jpg",
     name: "Priya Mehta",
     isFollowed: true,
+    isLiked: true,
     likes: 250,
     comments: 67,
     shares: 22,
@@ -23,6 +25,7 @@ const posts = [
     profileImg: "https://randomuser.me/api/portraits/men/13.jpg",
     name: "Rohan Verma",
     isFollowed: false,
+    isLiked: true,
     likes: 89,
     comments: 12,
     shares: 5,
@@ -34,6 +37,7 @@ const posts = [
 
     name: "Sara Khan",
     isFollowed: true,
+    isLiked: false,
     likes: 310,
     comments: 54,
     shares: 18,
@@ -45,6 +49,7 @@ const posts = [
 
     name: "Dev Patel",
     isFollowed: false,
+    isLiked: true,
     likes: 175,
     comments: 28,
     shares: 9,
@@ -56,6 +61,7 @@ const posts = [
 
     name: "Ishita Roy",
     isFollowed: true,
+    isLiked: true,
     likes: 420,
     comments: 90,
     shares: 30,
@@ -67,6 +73,7 @@ const posts = [
 
     name: "Kunal Singh",
     isFollowed: false,
+    isLiked: false,
     likes: 98,
     comments: 17,
     shares: 4,
@@ -77,6 +84,7 @@ const posts = [
     profileImg: "https://randomuser.me/api/portraits/women/18.jpg",
     name: "Neha Gupta",
     isFollowed: true,
+    isLiked: false,
     likes: 260,
     comments: 42,
     shares: 13,
@@ -84,29 +92,35 @@ const posts = [
     video: "Assets/video-8.mp4",
   },
 ];
+var wrapper = document.querySelector(".wrapper");
 
-var clutter = "";
-posts.forEach(function (dets) {
-  clutter += `   <div class="card">
+function addData() {
+  var clutter = "";
+  posts.forEach(function (dets, idx) {
+    clutter += `   <div class="card">
                 <div class="reel">
                     <div class="video">
-                       <video src="${dets.video}" autoplay muted loop></video>
+                       <video src="${dets.video}" autoplay  loop></video>
                     </div>
                     <div class="btm">
                         <div class="btm-top">
                             <img src="${dets.profileImg}"
                                 alt="">
                             <h3>${dets.name}</h3>
-                            <button>${
-                              dets.isFollowed ? "Unfollow" : "Follow"
-                            }</button>
+                            <button class="followBtn" id="${idx}">${
+      dets.isFollowed ? "Unfollow" : "Follow"
+    }</button>
                         </div>
                         <p>${dets.description}</p>
 
                     </div>
                     <div class="icons">
-                        <div class="like">
-                            <i class="ri-heart-line"></i>
+                        <div id=${idx} class="like">
+                          ${
+                            dets.isLiked
+                              ? `<i  class="love ri-heart-fill"></i>`
+                              : `<i class="ri-heart-line"></i>`
+                          }
                             <h3>${dets.likes}</h3>
                         </div>
                         <div class="comment">
@@ -124,8 +138,30 @@ posts.forEach(function (dets) {
                     </div>
                 </div>
             </div>`;
+  });
+
+  wrapper.innerHTML = clutter;
+}
+
+addData();
+
+wrapper.addEventListener("click", function (dets) {
+  if (dets.target.className == "like") {
+    if (!posts[dets.target.id].isLiked) {
+      posts[dets.target.id].likes++;
+      posts[dets.target.id].isLiked = true;
+    } else {
+      posts[dets.target.id].likes--;
+      posts[dets.target.id].isLiked = false;
+    }
+  }
+  if (dets.target.className == "followBtn") {
+    if (!posts[dets.target.id].isFollowed) {
+      posts[dets.target.id].isFollowed = true;
+    } else {
+      posts[dets.target.id].isFollowed = false;
+    }
+  }
+
+  addData();
 });
-
-var wrapper = document.querySelector(".wrapper");
-
-wrapper.innerHTML = clutter;

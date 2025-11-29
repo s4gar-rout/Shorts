@@ -65,7 +65,7 @@ main .wrapper .card .reel .btm {
 main .wrapper .card .reel .btm .btm-top {
   display: flex;
   align-items: center;
-  gap: 2.6vh;
+  gap: 1.3vh;
   padding: 3vh;
 }
 main .wrapper .card .reel .btm .btm-top img {
@@ -85,7 +85,6 @@ main .wrapper .card .reel .btm .btm-top button {
   border-radius: 20px;
 }
 main .wrapper .card .reel .btm p {
-  margin-top: 1vh;
   margin-left: 3vh;
   font-size: 2.2vh;
   width: 81%;
@@ -117,14 +116,16 @@ main .wrapper .card .reel .icons .menu i {
   padding: 1.4vh;
   background-color: #24243e;
   border-radius: 50%;
-  font-size: 2.6vh;
+  font-size: 2.8vh;
   color: #cfcee0;
   font-weight: 200;
+  pointer-events: none;
 }
 main .wrapper .card .reel .icons .like h3,
 main .wrapper .card .reel .icons .comment h3,
 main .wrapper .card .reel .icons .share h3,
 main .wrapper .card .reel .icons .menu h3 {
+  pointer-events: none;
   color: white;
   font-weight: 400;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
